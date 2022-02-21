@@ -1,0 +1,244 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Creating Change request in Allianz Servicenow</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="snow"
+                  title="Creating Change request in Allianz Servicenow"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Overview" duration="30">
+        <h2 is-upgraded>Introduction</h2>
+<ul>
+<li><a href="#request-for-a-change-rfc-or-open-a-change-record" target="_blank">Request for a change</a></li>
+<li><a href="#assessment-and-planning-stage" target="_blank"> Assessment and planning stage</a></li>
+<li><a href="#approval-stage" target="_blank">Approval Stage</a></li>
+<li><a href="#implementation-stage" target="_blank">Implementation Stage</a></li>
+<li><a href="#close-stage" target="_blank">Close Change stage</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Request for a change (rfc) or open a Change record" duration="5">
+        <h2 is-upgraded>open a Change record</h2>
+<ol type="1">
+<li>Login to <a href="http://aztech.service-now.com" target="_blank">Allianz Service Now</a></li>
+<li>Navigate the option to select <code>Change</code> –&gt; <code>create new</code> option</li>
+</ol>
+<p><img alt="screenshot-1" src="img/187271f077fe9aa8.png">.</p>
+<ol type="1" start="3">
+<li>Select the change template <code>Normal</code></li>
+</ol>
+<p><img alt="template" src="img/a6931d70c244d30a.png">.</p>
+<ol type="1" start="4">
+<li>Select the below options as per the screenshot <ul>
+<li>Category</li>
+<li>Bussiness Service</li>
+<li>OE</li>
+<li>Assignemnet group</li>
+<li>Change Owner</li>
+</ul>
+</li>
+</ol>
+<p><img alt="rfc" src="img/e4b0ef35b2a12f42.png">.</p>
+<pre><code>  you can use below example to fill data 
+</code></pre>
+<p><img alt="RFC-Example" src="img/552ab9a67473a17.png">.</p>
+<ol type="1" start="4">
+<li>Fill the following<ul>
+<li>Short description :</li>
+</ul>
+<code>Add configuration lines to the hosts config of subsystem Dynatrace</code><ul>
+<li>Requirements :</li>
+</ul>
+<pre><code>  1. Change Description (Please explain the change activity and its purpose in detail)
+      	Add configuration lines to the hosts config of subsystem Dynatrace in order to install the agent automatically .
+
+  2. Key contact during change implementation. (Name, Phone number, Email id)
+	IBM.DS.UNIX.EUR  Allianz.UNIX.BAU@pl.ibm.com  and Global Monitroing team
+
+  3. Which is/are the Affected/Related environment in this change . (Development, Test, Production) ?
+	Production
+
+  4. Which Application&#39;s / Services are affected/related ?
+	&lt;team &gt;
+
+  5. Is this change related to CORE Data Center Network Devices ? Yes/No
+	NO
+
+  6. Have all the Affected Configuration Item&#39;s added in affected CI section? Yes/No
+	Yes
+
+  7. CI Type ( e.g - Server, DB, Mainframe, Router, Switches, Firewall . .etc.)
+	Servers
+
+  8. Critical time of implementation during the change window ?
+	&lt;Date and time &gt;
+
+  9. Are there any conflicts with any other parallel running changes ? YES/NO ?
+           NO conflicts
+
+</code></pre>
+Note : you have to fill the data &lt;&gt;<ul>
+<li>Justfication :<code>Dynatrace Agent is required to monitor Application performance</code></li>
+</ul>
+</li>
+<li>Under schedule tab update the planned start ,planned End dates ,Down time etc.</li>
+</ol>
+<p><img alt="schedule" src="img/a445789fd79be5cb.png">.</p>
+<ol type="1" start="6">
+<li>Under the Planning tab please update<ul>
+<li>Change plan<pre><code> Add the configuration lines to the hosts config of subsystem Dynatrace
+     &lt;HOSTNAME&gt;:&lt;ENVIRONMENT&gt;:&lt;HOSTGROUP&gt;:&lt;INSTALLMODE&gt;:[&lt;HOST-PROPERTY-LIST&gt;] ( updated in the task )
+     and
+     Add the Dynatrace subsystem to the hosts and trigger a sysconf update.```
+
+
+
+</code></pre>
+</li>
+<li>Backout plan</li>
+</ul>
+<code> remove all configuration from host file</code><ul>
+<li>Pre Implementation Tests</li>
+</ul>
+<code> NA</code><ul>
+<li>Post Implementation Tests</li>
+</ul>
+<code> Check all agents are connected successfully in Dynatrace GUI</code></li>
+<li>Update Risk and Assessment tab<ul>
+<li>Impact assessment<code>low</code></li>
+<li>Impact statement<pre><code language="language-•" class="language-•">                         No impact on exisiting service ,
+        • Detailed description of the possible worst case scenario if the change fails.
+                     no impact we can revert the chnage with in 15 mins
+        • What needs to be done in the worst case scenario ?
+                     uninstall the dynatrace agent ```
+
+</code></pre>
+</li>
+<li>Risk Assessment<pre><code>`low&#39;
+</code></pre>
+</li>
+<li>Risk Statement<pre><code language="language-•" class="language-•">	least probability
+• What risk mitigation steps have been taken to reduce the probability of impact?
+	This agent is already installed and running in 100+ servers ```
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Now we have to set the change to Registered   by clicking the button in top left corner .<img alt="Registred" src="img/754f77dea96bee2f.png"></li>
+<li>Once the change is registred please assigned the change to yourself .<img alt="Assigned" src="img/66d564c848260921.png"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Assessment and planning stage" duration="5">
+        <h2 is-upgraded>Assessment and planning stage</h2>
+<ol type="1">
+<li>BS/DR information  tab update :<ul>
+<li>Business Service Update<code>NO</code></li>
+<li>Disaster Recovery Plan<pre><code>  `NO`
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Select Change Management / CAB unit<pre><code>    `AMOS.CHG-CHG_MGMT`
+</code></pre>
+</li>
+<li>Add the server names which you want to install agent in the bottom of change window by clicking the edit button</li>
+</ol>
+<p class="image-container"><img alt="affected-CI" src="img/bca8d0d9933a8ca9.png"></p>
+<ol type="1" start="4">
+<li>Based on the selected CI there will be some approval task will be added in the group approval tab .Please check and        confirm the same .</li>
+</ol>
+<p class="image-container"><img alt="approval" src="img/1450d710b348493.png"></p>
+<ol type="1" start="5">
+<li>Now add the task to IBM for installing Agent<ul>
+<li>Task Type :<code>Implementation task</code></li>
+<li>Planned Start Date<code>According to your change </code></li>
+<li>Planned End Date<code>According to your change </code></li>
+<li>Assignment Group<code> IBM.DS.UNIX.EUR</code></li>
+<li>Short description<pre><code>`Add Dynatrace hosts  in SYSCONF`
+</code></pre>
+</li>
+<li>Requirement<pre><code>Setp 1: Add following configuration lines to the hosts config of subsystem Dynatrace 
+	    (Location:OS_independent/filedir.sc/tmp/dynatrace/hosts.txt)
+           &lt;HOSTNAME&gt;:&lt;ENVIRONMENT&gt;:&lt;HOSTGROUP&gt;:&lt;INSTALLMODE&gt;:[&lt;HOST-PROPERTY-LIST&gt;]
+Step 2:  Add the Dynatrace subsystem to the hosts and trigger a sysconf update.(eg below) 
+    sla27334.srv.allianz:prod:az-tech-rap-argo:full:		        [ProfitCenter=C49,CostCenter=tbd,ServiceID=8000142,Department=A-GP03RAP]
+
+Step3 : Check Ps-eaf |grep -i Dynatrace ( to confim the agent is running fine )
+
+Step4 : contact Change owner and confirm the agent is successfully registred in Dynatrace
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Now Set the change to planned state .<img alt="PLANNED" src="img/710c434b34856609.png"></li>
+<li>Work with diffrent team ( group approval tab ) get the approval .Once we got all approval set the change to accepted state .  Meanwhile we should also confim IBM also Accepted our change task</li>
+</ol>
+<p class="image-container"><img alt="accepted" src="img/51270662b10acf7f.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Approval stage" duration="5">
+        <h2 is-upgraded>Approval stage</h2>
+<ol type="1">
+<li>In this stage we will required approval from allianz change Management team . Change team will review our change .In case if we have any quries they will send you an email . Once they are accepted we are ready to move the change to Implementation Stage .</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Implementation Stage" duration="5">
+        <h2 is-upgraded>Implementation Stage</h2>
+<ol type="1">
+<li>Now we are ready to perform the change .Once you completed the  task  please update the task with close state .</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Close stage" duration="2">
+        <h2 is-upgraded>Close stage</h2>
+<ol type="1">
+<li>Close the change .</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
