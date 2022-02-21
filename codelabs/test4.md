@@ -1,19 +1,19 @@
 summary: test CaC
-id: testcac
-categories: cac
-tags: cac,MZ
+id: testcacalert
+categories: cac,Alerting
+tags: cac,alerting
 status: Published 
 authors: akhil
 
 
-# How to request a MZ
+# How to create an alerting profiel
 <!-- ------------------------ -->
 ## Overview 
 Duration: 1
 
 ### What You’ll Learn 
-- how to request a MZ and all bla bla things 
-- how to include costcneter 
+- how to request analerting profile  and all bla bla things 
+- how to include costcenter
 - other stuff
 
 <!-- ------------------------ -->

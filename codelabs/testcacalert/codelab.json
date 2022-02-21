@@ -3,23 +3,24 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-02-21T15:00:16+05:30",
-  "id": "testcac",
+  "updated": "2022-02-21T15:02:10+05:30",
+  "id": "testcacalert",
   "duration": 3,
-  "title": "How to request a MZ",
+  "title": "How to create an alerting profiel",
   "authors": "akhil",
   "summary": "test CaC",
-  "source": "test3.md",
+  "source": "test4.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
-    "cac"
+    "cac",
+    "alerting"
   ],
   "tags": [
-    "cac",
-    "mz"
+    "alerting",
+    "cac"
   ],
-  "url": "testcac"
+  "url": "testcacalert"
 }
