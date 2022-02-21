@@ -1,0 +1,13 @@
+{
+  "title": "Star Kit",
+  "description": "Welcome to Global end to end Monitoring starter kit ",
+  "tags": [],
+  "categories": [],
+  "exclude": [
+    "^lang-.*"
+  ],
+  "logoUrl": "https://www.allianz.com/content/dam/onemarketing/system/allianz-logo.svg",
+  "toolbarBgColor": "#37474F",
+  "sort": "mainCategory",
+  "pins": []
+}
