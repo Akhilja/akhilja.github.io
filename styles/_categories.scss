@@ -191,12 +191,14 @@ $color-google-blue, 'wear-os.svg');
 @include codelab-card(['unity'],
   $color-unity-grey, 'unity.svg');
 
-@include codelab-card(['weave'],
+@include codelab-card(['testcac'],
 $color-weave-green, 'weave.svg');
 
 @include codelab-card(['wear', 'wear-os'],
   $color-google-blue, 'wear-os.svg');
 
-@include codelab-card(['web'],
-  $color-google-blue, 'web.svg');
+@include codelab-card(['testcacalert'],
+  #FC0023, 'web.svg');
 @include codelab-card(['snow'], #FC0023, 'snow.png');
+@include codelab-card(['cac'], #092d5d, 'jenkin.png');
+@include codelab-card(['dynatrace'], #092d5d, 'dt.gif');
